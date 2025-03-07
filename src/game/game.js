@@ -1,12 +1,12 @@
 export class Game {
     constructor() {
+        this.commandManager = {}
         this.stateManager = {}
-        this.commandsManager = {}
     }
 
     onPayload(payload) {
         console.log(payload);
-        // this.commandsManager.handle(payload);
+        // this.commandManager.handlePayload(payload);
     }
 
     start() {
