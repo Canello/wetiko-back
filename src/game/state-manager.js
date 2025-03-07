@@ -7,9 +7,15 @@ export class StateManager {
 
     tick() {
         this.commands = this.commandManager.getCommands();
+
         this.commands.forEach(command => {
             const player = this.players[command.playerId];
-            command.execute(player);
+            command.execute(player, players);
         });
+
+        for (const playerId in this.players) {
+            const player = this.players[playerId];
+            player.tick(players);
+        }
     }
 }

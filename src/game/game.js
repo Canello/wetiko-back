@@ -6,7 +6,7 @@ export class Game {
 
     onPayload(payload) {
         console.log(payload);
-        // this.commandManager.handlePayload(payload);
+        // this.commandManager.handlePayload(payload.commands);
     }
 
     start() {
