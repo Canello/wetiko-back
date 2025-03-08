@@ -1,8 +1,11 @@
+import { CommandManager } from "./command-manager.js";
+import { StateManager } from "./state-manager.js";
+
 export class Game {
     constructor(server) {
         this.server = server;
-        this.commandManager = {}
-        this.stateManager = {}
+        this.commandManager = new CommandManager();
+        this.stateManager = new StateManager(this.commandManager);
     }
 
     addPlayer(playerInfo) {

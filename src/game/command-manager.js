@@ -23,6 +23,19 @@ export class CommandManager {
     }
 }
 
+class MoveCommand {
+    constructor(playerId, data) {
+        this.playerId = playerId;
+        this.lat = data.lat;
+        this.long = data.long;
+    }
+
+    execute(player) {
+        player.lat = this.lat;
+        player.long = this.long;
+    }
+}
+
 class CommandFactory {
     static overwriteCommandTypes = new Set(['MOVE']);
     static commands = {
@@ -35,18 +48,5 @@ class CommandFactory {
 
     static getHandleType(type) {
         return CommandFactory.overwriteCommandTypes.has(type) ? 'OVERWRITE' : 'ENQUEUE';
-    }
-}
-
-class MoveCommand {
-    constructor(playerId, data) {
-        this.playerId = playerId;
-        this.lat = data.lat;
-        this.long = data.long;
-    }
-
-    execute(player) {
-        player.lat = this.lat;
-        player.long = this.long;
     }
 }

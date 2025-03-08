@@ -6,7 +6,7 @@ export class Server {
     constructor(game) {
         this.app = express();
         this.server = http.createServer(this.app);
-        this.io = SocketIo(this.server);
+        this.io = new SocketIo(this.server);
         this.game = game;
     }
 

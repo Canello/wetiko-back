@@ -1,5 +1,5 @@
-import { Game } from "./game/game";
-import { Server } from "./server/server";
+import { Game } from "./game/game.js";
+import { Server } from "./server/server.js";
 
 const server = new Server();
 const game = new Game(server);
