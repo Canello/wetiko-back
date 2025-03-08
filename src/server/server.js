@@ -18,7 +18,15 @@ export class Server {
                 console.log('User disconnected');
             });
 
+            socket.on('player', (playerInfo) => {
+                console.log('Player created');
+                console.log(playerInfo);
+                this.game.addPlayer(playerInfo);
+            });
+
             socket.on('payload', (payload) => {
+                console.log('Payload received');
+                console.log(payload);
                 this.game.onPayload(payload);
             });
         });
